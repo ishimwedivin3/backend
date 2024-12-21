@@ -47,10 +47,7 @@ public class UserController {
     public ResponseEntity<Map<String, Object>> loginUser(@RequestBody User userobj) {
         Map<String, Object> response = new HashMap<>();
 
-        System.out.println("Received login request: " + userobj);
-
         User user = userService.loginUser(userobj.getUsername());
-        System.out.println("Fetched user: " + user);
 
         // Check if user exists and the password is correct
         if (user == null || !user.getPassword().equals(userobj.getPassword())) {
@@ -59,12 +56,13 @@ public class UserController {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(response);
         }
 
+        // Set user role in the response
         response.put("status", "success");
         response.put("message", "Login successful");
         response.put("role", user.getRole().name());
+
         return ResponseEntity.ok(response);
     }
-
 
     @GetMapping("/admin")
     public ResponseEntity<Map<String, Object>> showAdminDashboard(
