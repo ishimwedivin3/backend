@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
-@CrossOrigin (origins = "https://grocery-front-ten.vercel.app")
+@CrossOrigin(origins = {"http://localhost:5173", "https://grocery-front-ten.vercel.app"})
 @RestController
 @RequestMapping("/notifications")
 public class NotificationController {

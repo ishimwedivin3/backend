@@ -22,7 +22,7 @@ public class WebConfig implements WebMvcConfigurer {
     public void addCorsMappings(CorsRegistry registry) {
         // Restrict allowed origins to the specific URL
         registry.addMapping("/**")
-                .allowedOrigins("https://grocery-front-ten.vercel.app") // Allow only this origin
+                .allowedOrigins("http://localhost:5173","https://grocery-front-ten.vercel.app") // Allow only this origin
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS") // Specify allowed HTTP methods
                 .allowedHeaders("*") // Allow all headers
                 .allowCredentials(true); // Allow sending credentials such as cookies
